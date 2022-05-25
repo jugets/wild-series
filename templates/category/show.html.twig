@@ -4,10 +4,6 @@
 {% endblock %}
 
 {% block body %}
-<pre>
-    {{ dump(category) }}
-    {{ dump(programs) }}
-</pre>
 	{% for program in programs %}
 		<div>
 			<h2>{{ loop.index }}
