@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Séries par catégorie
+{% endblock %}
+
+{% block body %}
+<pre>
+    {{ dump(category) }}
+    {{ dump(programs) }}
+</pre>
+	{% for program in programs %}
+		<div>
+			<h2>{{ loop.index }}
+				/
+				{{ program.title }} - {{ program.id }}
+			</h2>
+            <p>
+                {{ program.synopsis }}
+            </p>
+            <p>              
+                <a href="{{ path("program_show", { id: program.id }) }}">Voir la fiche</a>
+            </p>
+		</div>
+        
+
+    {% else %}
+        Aucune série n'a été trouvée.
+	{% endfor %}
+
+{% endblock %}
