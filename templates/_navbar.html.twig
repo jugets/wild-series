@@ -1,9 +1,11 @@
 <nav class="navbar navbar-light bg-dark">
 	<div class="container-fluid justify-content-start gap-10">
         <img src="{{ asset('build/images/logoTV.png') }}" alt="" width="30" height="24" class="d-inline-block align-text-top">
-        <a class="navbar-brand fw-bold px-3" href="/">
+        <a class="navbar-brand fw-bold px-3  text-light" href="/">
             Accueil
 		</a>
+        <a class="navbar-brand fw-bold px-3  text-light" href="{{ path("program_index") }}">Séries</a>
+        <a class="navbar-brand fw-bold px-3  text-light" href="{{ path("category_index") }}">Catégories</a>
 	</div>
 </nav>
 

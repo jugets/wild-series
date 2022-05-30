@@ -4,26 +4,30 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Toutes les séries de la table program :
-	</h1>
+	<h1>Toutes les séries :</h1>
+	<div class="container-fluid pb-md-5 justify-content-md-between">
+	<div class="row row-cols-lg-3">
 	{% for program in programs %}
-		<div>
-			<h2>{{ loop.index }}
-				/
-				{{ program.title }}
-				- Catégorie :
-				{{ program.category.name }}</h2>
-			<p>{{ program.synopsis }}</p>
-			{# Lien vers la fiche de la série : #}
-			<a href="{{ path("program_show", { id: program.id }) }}">Voir la fiche</a>
+		<div class="col mb-4">
+		<div class="card h-100" style="width: 25rem">
+			<img src="..." class="card-img-top" alt="...">
+			<div class="card-body bg-dark text-light">
+				<h3 class="card-title">{{ program.title }}</h3>
+				<p class="text-center">{{ program.category.name }}</p>
+				<p class="card-text" style="height: 150px;">{{ program.synopsis }}</p>
+				{# Lien vers la fiche de la série : #}
+				<div class="card-footer text-center">
+				<a class="btn btn-primary" href="{{ path("program_show", { id: program.id }) }}">Voir la fiche</a>
+				</div>
+			</div>
+		</div>
 		</div>
 	{% else %}
 		Aucune série trouvée.
 	{% endfor %}
-
+	</div>
+	</div>
 	<a href="{{ path('app_index') }}">
 		Retour à l'accueil
 	</a>
 {% endblock %}
-
-
