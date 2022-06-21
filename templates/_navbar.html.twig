@@ -6,6 +6,12 @@
 		</a>
         <a class="navbar-brand fw-bold px-3  text-light" href="{{ path("program_index") }}">Séries</a>
         <a class="navbar-brand fw-bold px-3  text-light" href="{{ path("category_index") }}">Catégories</a>
+        {% if app.user %}
+            {{ app.user.email }}
+            <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+        {% else %}
+            <a href="{{ path('login') }}"> Se connecter</a>
+        {% endif %}
 	</div>
 </nav>
 

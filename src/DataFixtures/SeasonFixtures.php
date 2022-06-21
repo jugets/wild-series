@@ -32,7 +32,7 @@ class SeasonFixtures extends Fixture implements DependentFixtureInterface
             $season->setNumber($s);
                 
             $manager->persist($season);
-            $this->setReference('season_' . $season->getNumber(), $season);
+            $this->setReference('program_' . $p .'_season_' .$s, $season);
             }
         }
         $manager->flush();

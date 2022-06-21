@@ -21,15 +21,17 @@ class EpisodeFixtures extends Fixture implements DependentFixtureInterface
         * L'objet $faker que tu récupère est l'outil qui va te permettre 
         * de te générer toutes les données que tu souhaites
         */
-        for($s = 1; $s <= 5; $s++) {
-            for($e = 1; $e <= 10; $e++) {
-                $episode = new Episode();
-                $episode->setTitle($faker->title());
-                $episode->setNumber($e);
-                $episode->setSynopsis($faker->paragraphs(3, true));
-                $episode->setSeason($this->getReference('season_' . $s));
+        for($p = 0; $p <= 7; $p++){
+            for($s = 1; $s <= 5; $s++) {
+                for($e = 1; $e <= 10; $e++) {
+                    $episode = new Episode();
+                    $episode->setTitle($faker->title());
+                    $episode->setNumber($e);
+                    $episode->setSynopsis($faker->paragraphs(3, true));
+                    $episode->setSeason($this->getReference('program_' . $p . '_season_' . $s));
 
-                $manager->persist($episode);
+                    $manager->persist($episode);
+                }
             }
         }
         $manager->flush();
